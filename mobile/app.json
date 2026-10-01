@@ -1,0 +1,89 @@
+{
+  "expo": {
+    "name": "FitForge",
+    "slug": "fitforge",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "scheme": "fitforge",
+    "userInterfaceStyle": "automatic",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#0B0F14"
+    },
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.fitforge.app",
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "FitForge uses your location to track outdoor runs and cycling routes.",
+        "NSCameraUsageDescription": "Scan barcodes to quickly log packaged foods.",
+        "NSPhotoLibraryUsageDescription": "Upload progress photos and profile pictures.",
+        "NSHealthShareUsageDescription": "Import steps, heart rate, sleep and calories from Apple Health.",
+        "NSHealthUpdateUsageDescription": "Log workouts and calories back to Apple Health.",
+        "ITSAppUsesNonExemptEncryption": false
+      },
+      "entitlements": {
+        "com.apple.developer.healthkit": true
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#16A34A"
+      },
+      "package": "com.fitforge.app",
+      "permissions": [
+        "ACCESS_FINE_LOCATION",
+        "ACCESS_COARSE_LOCATION",
+        "ACTIVITY_RECOGNITION",
+        "CAMERA",
+        "INTERNET",
+        "RECEIVE_BOOT_COMPLETED",
+        "VIBRATE"
+      ]
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "static",
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-secure-store",
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "Allow FitForge to use your location for GPS route tracking."
+        }
+      ],
+      [
+        "expo-barcode-scanner",
+        {
+          "cameraPermission": "Allow FitForge to access your camera to scan food barcodes."
+        }
+      ],
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Allow FitForge to access your photos to upload progress pictures."
+        }
+      ],
+      [
+        "expo-notifications",
+        {
+          "color": "#16A34A"
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      }
+    }
+  }
+}
